@@ -937,6 +937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6667063576303219835, guid: 1efa85aac3111604f9a0fb324207cf8d, type: 3}
-  direction: {x: 1, y: 0, z: 0}
-  speed: 0
   spawnPlace: {fileID: 1450656439}
+  time: 2
+  shootTime: 0

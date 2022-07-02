@@ -3,13 +3,14 @@ using UnityEngine;
 public class Bullets : MonoBehaviour
 {
     public GameObject bullet;
-    public Vector3 direction;
-    public float speed;
     public Transform spawnPlace;
+    public float time = 2f;
+    public float shootTime;
 
     void Start()
     {
-        Instantiate(bullet,spawnPlace.position,transform.rotation);               
+        Instantiate(bullet,spawnPlace.position,transform.rotation);
+        TimeReset();               
     }
 
    
@@ -19,27 +20,23 @@ public class Bullets : MonoBehaviour
     }
 
 
+    void TimeReset()
+    {
+        shootTime = time;
+    }
+
+
     void Shooting()
     {
-        if(Input.GetKeyDown(KeyCode.J))
-        {
-            Instantiate(bullet,spawnPlace.position,transform.rotation);
-        }
-
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            Instantiate(bullet,spawnPlace.position,transform.rotation);
-        }
-
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            Instantiate(bullet,spawnPlace.position,transform.rotation);
-        }
-
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(bullet,spawnPlace.position,transform.rotation);
-        }
+        shootTime -= Time.deltaTime;
+        if(shootTime <= 0)
+            {
+            TimeReset();
+            }
         
+        if(shootTime == 2)
+        {
+            Instantiate(bullet,spawnPlace.position,transform.rotation);            
+        }        
     }
 }
